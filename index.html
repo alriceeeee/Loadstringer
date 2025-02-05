@@ -7,44 +7,49 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 text-white font-sans">
-    <div class="absolute inset-0 bg-[url('https://raw.githubusercontent.com/alriceee/assets/main/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white font-sans overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://play.tailwindcss.com/img/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
 
     <div class="relative flex flex-col items-center justify-center min-h-screen p-4">
-        <div class="bg-gray-800/50 backdrop-blur-xl p-8 rounded-2xl shadow-2xl max-w-md w-full border border-gray-700/50">
+        <div class="bg-gray-800/30 backdrop-blur-xl p-8 rounded-2xl shadow-2xl max-w-md w-full border border-gray-700/30 hover:border-blue-500/50 transition-all duration-300">
             <div class="flex flex-col items-center space-y-6">
-                <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-                    Roblox Loadstringer
-                </h2>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-code text-2xl text-blue-400"></i>
+                    <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
+                        Roblox Loadstringer
+                    </h2>
+                </div>
                 
                 <div class="w-full space-y-4">
-                    <div class="relative">
+                    <div class="relative group">
                         <input type="text" id="githublink" 
-                            class="w-full px-4 py-3 bg-gray-700/50 rounded-lg border border-gray-600/50 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:outline-none transition duration-200"
+                            class="w-full px-4 py-3 bg-gray-700/30 rounded-lg border border-gray-600/30 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 focus:outline-none transition duration-200 placeholder-gray-400"
                             placeholder="Enter raw GitHub content link">
+                        <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                     </div>
 
                     <button onclick="generateLoadstring()" 
-                        class="w-full px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-lg font-medium transition duration-200 transform hover:scale-105">
+                        class="w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
                         Generate Loadstring
                     </button>
 
-                    <div class="relative">
+                    <div class="relative group">
                         <div id="output" 
-                            class="w-full px-4 py-3 bg-gray-700/50 rounded-lg border border-gray-600/50 min-h-[50px] break-all">
+                            class="w-full px-4 py-3 bg-gray-700/30 rounded-lg border border-gray-600/30 min-h-[50px] break-all">
                         </div>
                         <button onclick="copyToClipboard()" 
-                            class="absolute right-2 top-2 p-2 text-gray-400 hover:text-white transition duration-200"
+                            class="absolute right-2 top-2 p-2 text-gray-400 hover:text-white transition duration-200 hover:scale-110"
                             id="copyButton">
                             <i class="fas fa-copy"></i>
                         </button>
+                        <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <footer class="absolute bottom-4 text-sm text-gray-400">
-            © 2025 alriceee. All rights reserved.
+        <footer class="absolute bottom-4 text-sm text-gray-400 hover:text-white transition-colors duration-200">
+            <a href="https://github.com/alriceee" target="_blank" class="hover:text-blue-400">© 2025 alriceee</a>
         </footer>
     </div>
 
@@ -60,7 +65,7 @@
             if (output) {
                 navigator.clipboard.writeText(output).then(() => {
                     const copyButton = document.getElementById("copyButton");
-                    copyButton.innerHTML = '<i class="fas fa-check"></i>';
+                    copyButton.innerHTML = '<i class="fas fa-check text-green-400"></i>';
                     setTimeout(() => {
                         copyButton.innerHTML = '<i class="fas fa-copy"></i>';
                     }, 2000);
